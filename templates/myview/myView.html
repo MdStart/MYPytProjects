@@ -25,6 +25,8 @@ Device Name : &nbsp;&nbsp;
 
 </tr>
 {% if all_records == 1%}
+
+    {% if myData.object_list %}
 {% for field in myData.object_list %}
 
   <tr>
@@ -33,19 +35,29 @@ Device Name : &nbsp;&nbsp;
   <td>{{ field.magnification }}</td>
   <td>{{ field.field_of_view }}</td>
   <td>{{ field.range }}</td>
-</tr>
-
-    {% endfor %}
+</tr>     {% endfor %}
     {% else %}
+    <tr>Sorry No data</tr>
+
+
+
+
+    {% endif %}
+    {% else %}
+    {% if myData%}
 {% for field in myData %}
 
   <tr>
+   <td>{{ field.pk }}</td>
   <td>{{ field.device_name }}</td>
   <td>{{ field.magnification }}</td>
   <td>{{ field.field_of_view }}</td>
   <td>{{ field.range }}</td>
-</tr>
- {% endfor %}
+</tr>     {% endfor %}
+    {% else %}
+      <tr>Sorry No Data</tr>
+    {% endif %}
+
 {% endif %}
 </table>
     </div>
