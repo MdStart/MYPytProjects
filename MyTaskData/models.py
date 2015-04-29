@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 class TaskData(models.Model):
     fields = models.ForeignKey('MyFields',null=True,blank=True)
     data = models.ForeignKey('MyData',null=True,blank=True)
@@ -18,3 +18,4 @@ class MyData(models.Model):
     magnification=models.CharField('magnification', max_length=128,null=True,blank=True)
     field_of_view=models.CharField('field_of_view', max_length=128,null=True,blank=True)
     range=models.CharField('range', max_length=128,null=True,blank=True)
+    created_date=models.DateField('created_date',default=timezone.now())
