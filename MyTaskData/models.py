@@ -12,7 +12,7 @@ class MyFields(models.Model):
     type=models.CharField('id',unique=True, max_length=128,null=True,blank=True)
 
 
-
+#Main Model In Question Above Models are Miscelleneous
 class MyData(models.Model):
     device_name=models.CharField('device_name' ,max_length=128,null=True,blank=True)
     magnification=models.CharField('magnification', max_length=128,null=True,blank=True)

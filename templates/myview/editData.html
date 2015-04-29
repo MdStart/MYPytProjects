@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Data</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script>
+    $(document).ready(function()
+    {
+
+    $('#id_submit').click(function()
+    {
+
+    if ($('#id_device_name').val().length<=0)
+    {
+    alert('Required Field');
+    return false;
+    }
+    });
+   } );
+   </script>
+</head>
+<body>
+
+<div style="margin-left:350px;margin-top:150px;border: 1px solid;width:30%;padding:10px;">
+    <span style="margin-left: 120px;font-size: 20px;text-decoration: underline">Edit  Data</span>
+    <br/>
+    <br/>
+     <br/>
+<form  action="/myPanel/editme/{{ mydata.pk }}/" method="post">
+Device Name : &nbsp;&nbsp;
+<input type="text" id="id_device_name" name="device_name" value="{{ mydata.device_name }}"/>
+<br/>
+<br/>
+    Magnification : &nbsp;&nbsp;
+<input type="text" name="magnification"  value="{{ mydata.magnification }}"/>
+<br/><br/>
+    Range : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="range"  value="{{ mydata.range }}"/>
+<br/><br/>
+    Field Of View : &nbsp;&nbsp;
+<input type="text" name="field_of_view"  value="{{ mydata.field_of_view }}"/>
+<br/><br/>
+
+
+ <input id="id_submit" style="margin-left: 115px;"type="submit" value="Edit Data">
+{% csrf_token %}</form>
+</div>
+
+</div>
+</body>
+</html>

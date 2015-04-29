@@ -7,6 +7,7 @@ from .models import MyData
 from .serializers import TaskSerializer
 
 permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 @api_view(['GET', 'POST'])
 def task_list(request):
 

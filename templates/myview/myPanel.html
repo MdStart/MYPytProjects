@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="margin-left:300px;margin-top:150px">
+<span style=""><a href="/myPanel/addData/">Add Data</a></span>
+    <div style="margin-top: 10px">
+
+<table border="1">
+<tr>
+     <th>Edit</th>
+      <th>Delete</th>
+   <th>Device Name</th>
+       <th>Magnification</th>
+     <th>Field Of View</th>
+
+ <th>Range</th>
+
+</tr>
+
+
+    {% if myData.object_list %}
+{% for field in myData.object_list %}
+
+  <tr>
+   <td><a href="/myPanel/editme/{{ field.pk }}/">Edit</a></td>
+       <td><a href="/myPanel/deleteme/{{ field.pk}}/">Delete</a></td>
+  <td>{{ field.device_name }}</td>
+  <td>{{ field.magnification }}</td>
+  <td>{{ field.field_of_view }}</td>
+  <td>{{ field.range }}</td>
+</tr>     {% endfor %}
+    {% else %}
+    <tr>Sorry No data</tr>
+
+
+
+
+    {% endif %}
+
+
+
+
+</table>
+    </div>
+{% if all_records == 1%}
+<div id="pagination">
+ {{ myData.render }}
+</div>
+{% endif %}
+</div>
+</body>
+</html>

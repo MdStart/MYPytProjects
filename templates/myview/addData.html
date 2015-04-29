@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Add Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script>
+    $(document).ready(function()
+    {
+
+    $('#id_submit').click(function()
+    {
+
+    if ($('#id_device_name').val().length<=0)
+    {
+    alert('Required Field');
+    return false;
+    }
+    });
+   } );
+   </script>
+</head>
+<body>
+
+<div style="margin-left:350px;margin-top:150px;border: 1px solid;width:30%;padding:10px;">
+    <span style="margin-left: 120px;font-size: 20px;text-decoration: underline">Add Data</span>
+    <br/>
+    <br/>
+     <br/>
+<form  action="/myPanel/addData/" method="post">
+Device Name : &nbsp;&nbsp;
+<input type="text" name="device_name" id="id_device_name"/>
+<br/>
+<br/>
+    Magnification : &nbsp;&nbsp;
+<input type="text" name="magnification"/>
+<br/><br/>
+    Range : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="range"/>
+<br/><br/>
+    Field Of View : &nbsp;&nbsp;
+<input type="text" name="field_of_view"/>
+<br/><br/>
+
+{% csrf_token %}
+ <input style="margin-left: 115px;"type="submit" id="id_submit" value="Add Data"></form>
+
+</div>
+
+</div>
+</body>
+</html>

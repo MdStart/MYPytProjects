@@ -8,4 +8,5 @@ urlpatterns = patterns(
     url(r'^api/', include('MyTaskData.urls')),
     url(r'^admin/', include(admin.site.urls)),
      url(r'^myview/',views.myView),
+      url(r'^myPanel/',include('MyViewApp.urls')),
 )
